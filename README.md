@@ -3,6 +3,7 @@
 ## MNIST
 <details>
 <summary>MNIST</summary>
+
 |Digit|number of samples (Origin)|number of samples (Imbalanced)|
 |:------:|:------:|:------:|
 |0|5923|5000|
@@ -51,4 +52,5 @@ for i_batch, (inputs, labels) in enumerate(train_dataloader):
 ### result
 ![](image/mnist1~9.png "MNIST1~9")
 ![](image/mnist1&9.png "MNIST1&9")
+
 </details>
