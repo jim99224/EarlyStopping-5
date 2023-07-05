@@ -1,6 +1,6 @@
 # Early-stopping5
 
-## MNIST
+## MNIST (Imbalanced)
 <details>
 <summary>MNIST</summary>
 
@@ -19,7 +19,7 @@
 
 ### code
 ```python
-early_stopping = EarlyStopping(100, ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], deno=50, warmup=50)
+early_stopping = EarlyStopping(100, ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], deno=100, warmup=50)
 digitToEng = dict()
 digitToEng['0'] = 'zero'
 digitToEng['1'] = 'one'
