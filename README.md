@@ -33,17 +33,17 @@ criterion = nn.BCEWithLogitsLoss(reduction="none")
 
 for i_batch, (inputs, labels) in enumerate(train_dataloader):
 
-	outputs = model(inputs)
-	loss = criterion(outputs, labels) # output shape: BxC
+    outputs = model(inputs)
+    loss = criterion(outputs, labels) # output shape: BxC
 
     subclass_loss = collections.defaultdict(list)
 
-	for i in range(outputs.shape[0]):
-		b = labels.detach()[i,:].cpu().numpy() > 0
+    for i in range(outputs.shape[0]):
+        b = labels.detach()[i,:].cpu().numpy() > 0
         indices = list(b.nonzero()[0])
-	    subclass_loss[digitToEng[str(indices[0])]].append(torch.mean(loss[i,:]))
-	loss = torch.mean(loss)
-	early_stopping(subclass_loss, loss.item(), model)
+        subclass_loss[digitToEng[str(indices[0])]].append(torch.mean(loss[i,:]))
+    loss = torch.mean(loss)
+    early_stopping(subclass_loss, loss.item(), model)
 ```
 
 ### result
