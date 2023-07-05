@@ -19,7 +19,7 @@
 
 ### code
 ```python
-early_stopping = EarlyStopping(100, ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], deno=100, warmup=50)
+early_stopping = EarlyStopping(100, ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'], deno=50, warmup=50)
 digitToEng = dict()
 digitToEng['0'] = 'zero'
 digitToEng['1'] = 'one'
@@ -34,19 +34,24 @@ digitToEng['9'] = 'nine'
 
 criterion = nn.BCEWithLogitsLoss(reduction="none")
 
-for i_batch, (inputs, labels) in enumerate(train_dataloader):
+for i in range(max_epoch):
+    for i_batch, (inputs, labels) in enumerate(train_dataloader):
 
-    outputs = model(inputs)
-    loss = criterion(outputs, labels) # output shape: BxC
+        outputs = model(inputs)
+        loss = criterion(outputs, labels) # output shape: BxC
 
-    subclass_loss = collections.defaultdict(list)
+        subclass_loss = collections.defaultdict(list)
 
-    for i in range(outputs.shape[0]):
-        b = labels.detach()[i,:].cpu().numpy() > 0
-        indices = list(b.nonzero()[0])
-        subclass_loss[digitToEng[str(indices[0])]].append(torch.mean(loss[i,:]))
-    loss = torch.mean(loss)
-    early_stopping(subclass_loss, loss.item(), model)
+        for i in range(outputs.shape[0]):
+            b = labels.detach()[i,:].cpu().numpy() > 0
+            indices = list(b.nonzero()[0])
+            subclass_loss[digitToEng[str(indices[0])]].append(torch.mean(loss[i,:]))
+        loss = torch.mean(loss)
+        early_stopping(subclass_loss, loss.item(), model)
+        if early_stopping.early_stop:
+            break
+    if early_stopping.early_stop:
+        break        
 ```
 
 ### result
