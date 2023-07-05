@@ -14,5 +14,5 @@
 |8|5851|1000|
 |9|5949|500|
 
-![](/mnist1~9.png "MNIST1~9")
-![](/mnist1&9.png "MNIST1&9")
+![](image/mnist1~9.png "MNIST1~9")
+![](image/mnist1&9.png "MNIST1&9")
