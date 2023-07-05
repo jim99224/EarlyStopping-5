@@ -106,5 +106,5 @@ def plot_2D(table, x_axis, color):
     # fig.update_yaxes(title='y', visible=False, showticklabels=False)
     # fig.update_layout(legend = dict(font = dict(family = "Courier", size = 50)),
     #               legend_title = dict(font = dict(family = "Courier", size = 30)))
-    fig.write_html('ES_5(MNIST)_2D.html', auto_open=True)
+    fig.write_html('ES_5(MNIST)_2D.html', auto_open=False)
 # py.iplot(fig, filename='3d-scatter-colorscale')
