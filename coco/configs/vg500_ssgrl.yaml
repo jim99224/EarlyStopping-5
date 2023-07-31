@@ -1,0 +1,31 @@
+data: &data vg500
+model: &model ssgrl
+num_classes: 500
+train_path: !join ['temp', *data, 'train.txt']
+val_path: !join ['temp', *data, 'val.txt']
+label_path: !join ['temp', *data, 'label.txt']
+embedding_path: !join ['temp', *data, 'embeddings.npy']
+graph_path: !join ['temp', *data, 'graph.npy']
+
+loss: BCElogitloss
+optimizer: Adam
+initmodel: ./initmodels/resnet101-5d3b4d8f.pth
+
+batch_size: 8
+scale_size: 640
+crop_size: 576
+
+num_workers: 8
+max_epoch: 200
+lr: 0.00001
+
+topk: 3
+threshold: 0.5
+
+name: &name !cat [*data, *model]
+log_dir: !join ['logs', *name]
+ckpt_dir: &ckpt_dir !join ['checkpoints', *name]
+ckpt_latest_path: !join [*ckpt_dir, 'latest_model.pth']
+ckpt_best_path: !join [*ckpt_dir, 'best_model.pth']
+
+output_dir: !join ['tmp', *name]

@@ -1,0 +1,15 @@
+.vscode
+*/__pycache__
+data
+initmodels
+logs
+checkpoints
+checkpoints_backup
+temp
+tmp
+
+train_coloss.py
+infer.py
+
+scripts/ssgrl_analysis.ipynb
+scripts/.ipynb_checkpoints

@@ -1,0 +1,30 @@
+data: &data coco
+model: &model resnet101
+num_classes: 80
+train_path: !join ['temp', *data, 'train.txt']
+val_path: !join ['temp', *data, 'val.txt']
+label_path: !join ['temp', *data, 'label.txt']
+
+loss: BCElogitloss
+optimizer: Adam
+initmodel: resnet101-5d3b4d8f.pth
+
+batch_size: 32
+scale_size: 640
+crop_size: 576
+
+num_workers: 4
+max_epoch: 200
+lr: 0.01
+
+topk: 3
+threshold: 0.5
+
+name: &name !cat [*data, *model]
+log_dir: !join ['logs', *name]
+ckpt_dir: &ckpt_dir !join ['checkpoints', *name]
+ckpt_latest_path: !join [*ckpt_dir, 'latest_model.pth']
+# ckpt_best_path: !join [*ckpt_dir, 'best_model.pth']
+ckpt_best_path: best_model.pth
+
+output_dir: !join ['tmp', *name]
