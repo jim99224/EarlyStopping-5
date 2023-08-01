@@ -1,9 +1,10 @@
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Created by: jasonseu
-# Created on: 2021-1-19
+# Created by: ChinYun Liu
+# Creation date: 2023-08-01
+# Email: jim99224@gmail.com 
+# 
+# Modified from: jasonseu
 # Email: zhuxuelin23@gmail.com
-#
-# Copyright © 2021 - CPSS Group
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import os
 import argparse
@@ -24,7 +25,6 @@ from EarlyStopping5_v1 import EarlyStopping
 
 import numpy as np
 import collections
-from MultilabelSampler import MultilabelSampler
 
 torch.backends.cudnn.benchmark = True
 
@@ -143,10 +143,11 @@ class Trainer(object):
 
             mAP = self.validation(epoch)
             self.lr_scheduler.step(mAP)
-            # is_save, is_terminate = self.early_stopping(mAP)
+            #============Early stopping=========
             if self.early_stopping.early_stop:
                 torch.save(self.model.state_dict(), self.args.ckpt_best_path)
                 break
+            #===================================
 
     def train(self, epoch):
         self.model.train()
