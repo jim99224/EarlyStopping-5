@@ -3,7 +3,7 @@ Early-stopping, through the use of subcategories from a user-defined dataset, de
 
 ## Table of contents
 - [MNIST (Imbalanced)](#MNIST (Imbalanced))
-- [COCO](#COCO)
+- [COCO](#coco)
 
 ## MNIST (Imbalanced)
 <details>
@@ -64,6 +64,7 @@ for i in range(max_epoch):
 ![](image/mnist1&9.png "MNIST1&9")
 </details>
 
+<a name="coco"/>
 ## COCO 
 <details>
 <summary>COCO</summary>
