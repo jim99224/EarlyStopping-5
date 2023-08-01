@@ -3,7 +3,7 @@ Early-stopping, through the use of subcategories from a user-defined dataset, de
 
 ## Table of contents
 - [MNIST (Imbalanced)](#MNIST (Imbalanced))
-- [COCO]()
+- [COCO](#COCO)
 
 ## MNIST (Imbalanced)
 <details>
