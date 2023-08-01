@@ -57,5 +57,6 @@ for i in range(max_epoch):
 ### result
 ![](image/mnist1~9.png "MNIST1~9")
 ![](image/mnist1&9.png "MNIST1&9")
-
+![](image/COCO_train_few_layers.png "MNIST1~9")
+![](image/COCO_train_all_layers.png "MNIST1&9")
 </details>
