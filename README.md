@@ -1,4 +1,5 @@
-# Early-stopping5
+## Early-stopping5
+Early-stopping, through the use of subcategories from a user-defined dataset, detects the convergence status of each subcategory and effectively assists users in identifying potential issues during deep learning training.
 
 ## MNIST (Imbalanced)
 <details>
